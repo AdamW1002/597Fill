@@ -7,6 +7,7 @@ class Program:
         self.operand_2 = None
         self.operand_3 = None
 
+
 # Const types
 IntConst = int
 StrConst = str
