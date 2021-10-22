@@ -8,6 +8,8 @@ class Program:
         self.operand_3 = None
 
 
+
+
 # Const types
 IntConst = int
 StrConst = str
