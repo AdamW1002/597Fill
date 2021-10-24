@@ -5,7 +5,7 @@
 from typing import Tuple, List
 
 import interpreter
-from representation.representation import Plus, Var, Program
+from representation.representation import Plus, Var, Program, Const
 
 test_1 = [([2, 2], 4), ([2, 3], 5)]
 
