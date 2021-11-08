@@ -32,8 +32,12 @@ def test_on_example(program: Program, example: Tuple) -> int | str:  # test prog
 
 def test_on_several(program : Program , tests : List) -> List:#run on whole test set
         results = []
+        all_good = True
         for test in tests:
-            results.append(test_on_example(program, test))
+            result = test_on_example(program, test)
+            results.append(result)
 
-        return results
+            all_good = all_good and result[0]
+
+        return results, all_good
 print(test_on_several(prog, test_1))
