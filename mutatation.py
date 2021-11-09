@@ -2,7 +2,7 @@
 from math import exp
 import random
 
-from representation.representation import Program, Const, Plus, Minus, Times, Var, IntConst, symbolicInt
+from representation.representation import Program, Const, Plus, Minus, Mul, Var, IntConst, symbolicInt
 
 const_counter = 0
 var_counter = 0

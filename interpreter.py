@@ -1,7 +1,7 @@
 # Copyright Adam Weiss 10/20/21
 
 #IMPORT NOTE ON SEMANTICS, STRINGS ARE COMPARABLE
-from representation.representation import Program, Var, Const, Minus, Plus, Times, Less, Equal, If, Not, Greater, Less
+from representation.representation import Program, Var, Const, Minus, Plus, Mul, Less, Equal, If, Not, Greater, Less
 
 
 def interpret(program: Program, lookup: dict) -> str | int:
@@ -14,7 +14,7 @@ def interpret(program: Program, lookup: dict) -> str | int:
             return interpret(program.operand_1,lookup) + interpret(program.operand_2,lookup) #execute arithmethic
         case Minus():
             return interpret(program.operand_1,lookup) - interpret(program.operand_2,lookup)
-        case Times():
+        case Mul():
             return interpret(program.operand_1,lookup) * interpret(program.operand_2,lookup)
         case If():#standard if semantics
             if interpret(program.operand_1, lookup):

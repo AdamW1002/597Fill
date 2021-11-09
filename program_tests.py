@@ -1,6 +1,6 @@
 #Copyright Adam Weiss 10/20/21
 from interpreter import interpret
-from representation.representation import Var, Times, Minus, Const, Greater, If
+from representation.representation import Var, Mul, Minus, Const, Greater, If
 
 x = Var("x")
 print(interpret(x, {"x" : "y"}))
@@ -8,7 +8,7 @@ print(interpret(x, {"x" : "y"}))
 y = Minus(Const(5), Var("x"))
 print(interpret(y, {"x" : 3}))
 
-u = Times(Const(3), Const(4))
+u = Mul(Const(3), Const(4))
 w = Greater(Const(2), Const(1))
 
 z = If(Greater(Const(1) , Const(0) ), Var("x"), Const("foo"))

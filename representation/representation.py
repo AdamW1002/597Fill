@@ -8,7 +8,8 @@ class Program:
         self.operand_3 = None
 
     def __str__(self):
-        return "{}(\n\t{},{},{}\n)".format(type(self).__name__,str(self.operand_1), str(self.operand_2), str(self.operand_3))
+        return "{}(\n\t{},{},{}\n)".format(type(self).__name__, str(self.operand_1), str(self.operand_2),
+                                           str(self.operand_3))
 
     def __eq__(self, other):
         if not isinstance(other, Program):
@@ -17,7 +18,9 @@ class Program:
         return self.operand_1 == other.operand_1 and self.operand_2 == other.operand_2 and self.operand_3 == other.operand_3
 
     def __hash__(self):
-        return hash(self.operand_1) + hash(self.operand_2) + hash(self.operand_3)
+        return hash(str(self))
+
+
 
 
 # Const types
@@ -62,7 +65,7 @@ class Minus(Expr):
         self.operand_2 = op2
 
 
-class Times(Expr):
+class Mul(Expr):
     def __init__(self, op1: Expr, op2: Expr) -> None:
         super().__init__()
         self.operand_1 = op1
