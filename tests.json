@@ -1,0 +1,20 @@
+{
+" Task -1": [
+{ " Input ": [2 , 2] , " Output ": 4 } ,
+{ " Input ": [3 , 5] , " Output ": 15 }
+],
+" Task -2": [
+{ " Input ": ["a", "b", "b"] , " Output ": "aaabb" },
+{ " Input ": ["aa", "d", "b"] , " Output ": "aaaaaadb" }
+],
+" Task -3": [
+{ " Input ": ["hello" , 4 , 2] , " Output ": "hellohello" },
+{ " Input ": ["world" , 1 , 0] , " Output ": "world" },
+{ " Input ": ["hi", 3, 3] , " Output ": "" }
+],
+" Task -4": [
+{ " Input ": [" plus ", 2, 3] , " Output ": 5 } ,
+{ " Input ": [" minus " , 5 , 3] , " Output ": 2 },
+{ " Input ": [" hi ", 2, 3] , " Output ": 0 }
+]
+}

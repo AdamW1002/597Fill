@@ -18,10 +18,14 @@ def test_on_example(program: Program, example: Tuple) -> int | str:  # test prog
 
     for i in range(len(inputs)):
         parsed_value = None  # parse as either string or int
-        if '"' in str(inputs[i]):  # if is string
-            parsed_value = str(inputs[i])
-        else:
+        try:
             parsed_value = int(inputs[i])
+        except:
+            parsed_value = str(inputs[i])
+        #if '"' in str(inputs[i]):  # if is string
+        #    parsed_value = str(inputs[i])
+        #else:
+        #    parsed_value = int(inputs[i])
         assignments["i{}".format(i)] = parsed_value
 
     result = interpreter.interpret(program,assignments)

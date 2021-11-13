@@ -8,7 +8,7 @@ class Program:
         self.operand_3 = None
 
     def __str__(self):
-        return "{}(\n\t{},{},{}\n)".format(type(self).__name__, str(self.operand_1), str(self.operand_2),
+        return "\t{}(\n\t{},{},{}\n)".format(type(self).__name__, str(self.operand_1), str(self.operand_2),
                                            str(self.operand_3))
 
     def __eq__(self, other):

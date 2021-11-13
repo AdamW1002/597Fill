@@ -2,6 +2,7 @@
 
 # Take a set of programs and enumerate all combinations
 import copy
+import itertools
 import random
 
 import interpreter
@@ -24,7 +25,7 @@ def stitch(host: Program | IntConst, graft: Program,
             return {copy.deepcopy(graft)}
         case Plus(operand_1=x, operand_2=y) | Mul(operand_1=x, operand_2=y) | Minus(operand_1=x, operand_2=y):
 
-            match (x, y):
+            match (x, y): #appen graft onto copies of host
                 case (None, None):
                     raise Exception("Error in program generation", "Error in program generation")
 
@@ -120,3 +121,23 @@ def enumerate(programs: set, check_example : list) -> set:
             new_programs = new_programs.union(result)
             count += 1
     return programs.union(new_programs)
+
+def pre_process(programs : set()) -> set():#make all expression have all vars and all consts
+    vars_and_consts = itertools.product(set(filter(lambda x : type(x) is Var or type(x) is Const, programs)),repeat =  2) #all vars
+    expressions = filter(lambda x : type(x) is Plus or type(x) is Minus or type(x) is Mul, programs )
+
+    augmented_programs = []
+    for expr in expressions:
+        for var in vars_and_consts:
+            new_expr = copy.deepcopy(expr)
+            l_val, r_val = var
+
+
+
+
+            new_expr.operand_1 = copy.deepcopy(l_val)
+            new_expr.operand_2 = copy.deepcopy(r_val)
+            augmented_programs.append(new_expr)
+
+    return programs.union(set(augmented_programs))
+

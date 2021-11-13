@@ -11,11 +11,23 @@ def interpret(program: Program, lookup: dict) -> str | int:
         case Const():
             return program.operand_1
         case Plus():
-            return interpret(program.operand_1,lookup) + interpret(program.operand_2,lookup) #execute arithmethic
+            l = interpret(program.operand_1,lookup)
+            r = interpret(program.operand_2,lookup)
+            if type(l) is str:
+                r = str(r)
+            if type(r) is str:
+                l = str(r)
+            return l + r #execute arithmethic
         case Minus():
-            return interpret(program.operand_1,lookup) - interpret(program.operand_2,lookup)
+            try:
+                return interpret(program.operand_1,lookup) - interpret(program.operand_2,lookup)
+            except Exception:
+                return None
         case Mul():
-            return interpret(program.operand_1,lookup) * interpret(program.operand_2,lookup)
+            try:
+                return interpret(program.operand_1,lookup) * interpret(program.operand_2,lookup)
+            except Exception:
+                return None
         case If():#standard if semantics
             if interpret(program.operand_1, lookup):
                 return interpret(program.operand_2,lookup)
